@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import UserInfo from "./Components/UserInfo/UserInfo";
+import Post from "./Components/Posts/Post";
 
 import "./App.css";
 
