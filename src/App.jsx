@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import Post from "./Components/Posts/Post";
+import UserInfo from "./Components/UserInfo/UserInfo";
 
 import "./App.css";
 
@@ -7,9 +8,10 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    let getData = async () => {
-      let response = await fetch("https://dummyjson.com/posts");
-      let data = await response.json();
+    const getData = async () => {
+      const response = await fetch("https://dummyjson.com/posts");
+      const data = await response.json();
+
       setPosts(data.posts);
     };
 
