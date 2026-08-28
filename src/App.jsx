@@ -28,7 +28,7 @@ function App() {
       >
         Show list
       </button>
-      {show && <UserInfo />}
+      {show && <Post />}
       <ul>
         {posts.map((post) => (
           <li>
