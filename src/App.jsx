@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-import UserInfo from "./Components/UserInfo/UserInfo";
 import Post from "./Components/Posts/Post";
 
 import "./App.css";
@@ -8,10 +7,9 @@ function App() {
   const [posts, setPosts] = useState([]);
 
   useEffect(() => {
-    const getData = async () => {
-      const response = await fetch("https://dummyjson.com/posts");
-      const data = await response.json();
-
+    let getData = async () => {
+      let response = await fetch("https://dummyjson.com/posts");
+      let data = await response.json();
       setPosts(data.posts);
     };
 
@@ -20,15 +18,9 @@ function App() {
 
   return (
     <>
-      <h1 className="heading">Haloooo</h1>
-
-      <UserInfo userId={1} />
-
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>
-            <h3>{post.title}</h3>
-          </li>
+          <Post key={post.id} post={post} />
         ))}
       </ul>
     </>
