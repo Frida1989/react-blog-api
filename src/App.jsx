@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import Post from "./Components/Posts/Post";
 import UserInfo from "./Components/UserInfo/UserInfo";
 
 import "./App.css";
@@ -19,15 +20,9 @@ function App() {
 
   return (
     <>
-      <h1 className="heading">Haloooo</h1>
-
-      <UserInfo userId={1} />
-
       <ul>
         {posts.map((post) => (
-          <li key={post.id}>
-            <h3>{post.title}</h3>
-          </li>
+          <Post key={post.id} post={post} />
         ))}
       </ul>
     </>
