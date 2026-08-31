@@ -1,3 +1,5 @@
+import UserInfo from "../UserInfo/UserInfo";
+
 const Post = ({ post }) => {
 
     return (
