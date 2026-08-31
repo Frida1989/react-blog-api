@@ -21,6 +21,8 @@ const Post = ({ post }) => {
       <div className="post-stats">
         <span>👍 {post.reactions.likes}</span>
 
+        <span>👎 {post.reactions.dislikes}</span>
+
         <span>👁️ {post.views} visningar</span>
       </div>
 
