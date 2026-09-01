@@ -1,40 +1,42 @@
+import UserInfo from "../UserInfo/UserInfo";
+import { useState } from "react";
+
 const Post = ({ post }) => {
+  const [showUser, setShowUser] = useState(false);
 
-    return (
-        <article className="post">
+  return (
+    <article className="post">
+      <h2>{post.title}</h2>
 
-            <h2>{post.title}</h2>
+      <div className="post-tags">
+        {post.tags.map((tag) => (
+          <span className="tag" key={tag}>
+            {tag}
+          </span>
+        ))}
+      </div>
 
-            <div className="post-tags">
-                {post.tags.map((tag) => (
-                    <span className="tag" key={tag}>
-                        {tag}
-                    </span>
-                ))}
-            </div>
+      <p className="post-body">{post.body}</p>
 
-            <p className="post-body">
-                {post.body}
-            </p>
+      <div className="post-stats">
+        <span>👍 {post.reactions.likes}</span>
 
-            <div className="post-stats">
+        <span>👎 {post.reactions.dislikes}</span>
 
-                <span>
-                    👍 {post.reactions.likes}
-                </span>
+        <span>👁️ {post.views} visningar</span>
+      </div>
 
-                <span>
-                    👁️ {post.views} visningar
-                </span>
+      <button
+        className="user-info-button"
+        onClick={() => setShowUser(!showUser)}
+      >
+        Visa användarinfo
+      </button>
 
-            </div>
-
-            <button className="user-info-button">
-                Visa användarinfo
-            </button>
-
-        </article>
-    );
+      {showUser && <UserInfo userId={post.userId} />}
+      
+    </article>
+  );
 };
 
 export default Post;
